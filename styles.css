@@ -142,10 +142,24 @@ a {
     transition: box-shadow var(--transicion);
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .nav-logo img {
-    height: 56px;
+    height: 48px;
     width: auto;
     object-fit: contain;
+}
+
+.nav-logo-texto {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--azul-oscuro);
+    letter-spacing: -0.3px;
+    white-space: nowrap;
 }
 
 .nav-links {
@@ -659,20 +673,18 @@ a {
 }
 
 .mockup-caso {
-    width: min(420px, 100%);
+    width: min(520px, 100%);
 }
 
-.mockup-nav-caso {
-    height: 28px;
-    width: 60%;
+.mockup-body-captura {
+    padding: 0;
+    line-height: 0;
 }
 
-.mockup-grid-caso {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.mockup-grid-caso .mockup-card {
-    height: 55px;
+.mockup-body-captura img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .caso-info {
@@ -1158,8 +1170,14 @@ a {
     gap: 18px;
 }
 
-.footer-contenido img {
-    height: 56px;
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo img {
+    height: 52px;
     width: auto;
 }
 
@@ -1280,7 +1298,11 @@ a {
     }
 
     .nav-logo img {
-        height: 44px;
+        height: 36px;
+    }
+
+    .nav-logo-texto {
+        font-size: 17px;
     }
 
     .hero {
