@@ -3,40 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MetCommerce — Soluciones Digitales para Negocios Locales</title>
-    <link rel="stylesheet" href="./styles.css">
+    <meta name="description" content="MetCommerce diseña y desarrolla software de comercio electrónico a medida: tiendas en línea, paneles de administración y APIs propias para negocios que quieren vender en serio por internet.">
+    <title>MetCommerce — Software de e-commerce a medida</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-logo">
-            <img src="./img/Logo.png" alt="MetCommerce Logo" style="height: 110px; width: 220px;">
+            <img src="./img/Logo.png" alt="MetCommerce" width="220" height="110" decoding="async">
         </div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#como-funciona">¿Cómo funciona?</a></li>
-            <li><a href="#precios">Precios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#inicio" class="nav-link">Inicio</a></li>
+            <li><a href="#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="#tecnologias" class="nav-link">Tecnología</a></li>
+            <li><a href="#casos-exito" class="nav-link">Proyectos</a></li>
+            <li><a href="#precios" class="nav-link">Precios</a></li>
+            <li><a href="#contacto" class="nav-link">Contacto</a></li>
         </ul>
         <a href="#contacto" class="btn-nav">Solicitar Demo</a>
     </nav>
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <!-- HERO -->
     <section class="hero" id="inicio">
-        <div class="hero-contenido">
-            <span class="hero-badge">🚀 Software SaaS para comercios locales</span>
-            <h1>Digitaliza tu negocio con <span class="highlight">MetCommerce</span></h1>
-            <p>Lleva tu tienda al mundo digital. Gestiona tus ventas, controla tu inventario y vende en línea desde un solo lugar — sin conocimientos técnicos.</p>
+        <canvas id="particles" class="hero-particles" aria-hidden="true"></canvas>
+        <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+
+        <div class="hero-contenido reveal">
+            <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Software a medida para comercio digital</span>
+            <h1>Construimos el <span class="highlight">software</span> detrás de tu próxima tienda en línea</h1>
+            <p>Diseñamos y desarrollamos plataformas de e-commerce completas: frontend a medida, panel de administración, API propia y base de datos — para negocios que quieren vender en línea sin depender de plantillas genéricas.</p>
             <div class="hero-botones">
-                <a href="#contacto" class="btn-principal">Solicitar Demo Gratis</a>
-                <a href="#como-funciona" class="btn-secundario">¿Cómo funciona?</a>
+                <a href="#contacto" class="btn-principal">
+                    <i class="fa-solid fa-rocket"></i> Solicitar Demo Gratis
+                </a>
+                <a href="#casos-exito" class="btn-secundario">
+                    <i class="fa-solid fa-play"></i> Ver proyecto real
+                </a>
             </div>
         </div>
-        <div class="hero-imagen">
-            <div class="mockup">
+
+        <div class="hero-imagen reveal">
+            <div class="mockup mockup-float">
                 <div class="mockup-header">
                     <span></span><span></span><span></span>
                 </div>
@@ -51,94 +72,201 @@
                 </div>
             </div>
         </div>
+
+        <a href="#estadisticas" class="scroll-cue" aria-label="Bajar a la siguiente sección">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
     </section>
 
     <!-- ESTADISTICAS -->
-    <section class="estadisticas">
-        <div class="stat">
-            <h3>+50</h3>
-            <p>Ideas Negocios digitales</p>
+    <section class="estadisticas" id="estadisticas">
+        <div class="stat reveal">
+            <h3 class="stat-num" data-target="50" data-suffix="+">0</h3>
+            <p>Ideas de negocio digitalizadas</p>
         </div>
-        <div class="stat">
-            <h3>90h</h3>
+        <div class="stat reveal">
+            <h3 class="stat-num" data-target="90" data-suffix="h">0</h3>
             <p>De implementación promedio</p>
         </div>
-        <div class="stat">
-            <h3>70%</h3>
+        <div class="stat reveal">
+            <h3 class="stat-num" data-target="70" data-suffix="%">0</h3>
             <p>Reducción de errores en inventario</p>
         </div>
-        <div class="stat">
-            <h3>$1.000.000</h3>
-            <p>Desde este precio en COP</p>
+        <div class="stat reveal">
+            <h3 class="stat-num" data-target="6" data-suffix="+">0</h3>
+            <p>Módulos API por proyecto</p>
         </div>
     </section>
 
     <!-- SERVICIOS -->
     <section class="servicios" id="servicios">
-        <div class="seccion-titulo">
+        <div class="seccion-titulo reveal">
+            <span class="seccion-tag">Servicios</span>
             <h2>¿Qué incluye MetCommerce?</h2>
-            <p>Todo lo que tu negocio necesita para vender en línea</p>
+            <p>Todo lo que tu negocio necesita para vender en línea, construido a la medida</p>
         </div>
         <div class="servicios-grid">
-            <div class="servicio-card">
-                <div class="servicio-icono">🛍️</div>
+            <div class="servicio-card reveal">
+                <div class="servicio-icono"><i class="fa-solid fa-store"></i></div>
                 <h3>Catálogo Digital</h3>
-                <p>Carga tus productos con fotos, precios y descripciones. Tu vitrina virtual disponible las 24 horas.</p>
+                <p>Carga tus productos con fotos, precios y variantes. Tu vitrina virtual disponible las 24 horas.</p>
             </div>
-            <div class="servicio-card">
-                <div class="servicio-icono">📦</div>
+            <div class="servicio-card reveal">
+                <div class="servicio-icono"><i class="fa-solid fa-boxes-stacked"></i></div>
                 <h3>Control de Inventario</h3>
                 <p>Actualización automática del stock con cada venta. Nunca más vendas productos agotados.</p>
             </div>
-            <div class="servicio-card">
-                <div class="servicio-icono">🛒</div>
+            <div class="servicio-card reveal">
+                <div class="servicio-icono"><i class="fa-solid fa-cart-shopping"></i></div>
                 <h3>Carrito de Compras</h3>
                 <p>Tus clientes compran fácilmente desde el celular o computador, sin complicaciones.</p>
             </div>
-            <div class="servicio-card">
-                <div class="servicio-icono">📊</div>
-                <h3>Panel de Ventas</h3>
+            <div class="servicio-card reveal">
+                <div class="servicio-icono"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Panel de Administración</h3>
                 <p>Consulta reportes de ventas, productos más vendidos y estado del inventario en tiempo real.</p>
             </div>
-            <div class="servicio-card">
-                <div class="servicio-icono">🔒</div>
+            <div class="servicio-card reveal">
+                <div class="servicio-icono"><i class="fa-solid fa-shield-halved"></i></div>
                 <h3>Seguridad de Datos</h3>
-                <p>Tu información y la de tus clientes protegida bajo la Ley 1581 de 2012 de Colombia.</p>
+                <p>Autenticación con JWT, control de acceso y buenas prácticas de seguridad en cada API que construimos.</p>
             </div>
-            <div class="servicio-card">
-                <div class="servicio-icono">🤝</div>
+            <div class="servicio-card reveal">
+                <div class="servicio-icono"><i class="fa-solid fa-headset"></i></div>
                 <h3>Soporte Personalizado</h3>
                 <p>Acompañamiento directo por WhatsApp y capacitación para que uses la plataforma con confianza.</p>
             </div>
         </div>
     </section>
 
+    <!-- TECNOLOGIAS -->
+    <section class="tecnologias" id="tecnologias">
+        <div class="seccion-titulo claro reveal">
+            <span class="seccion-tag claro">Stack tecnológico</span>
+            <h2>Tecnología moderna, sin humo</h2>
+            <p>Cada proyecto se construye sobre herramientas probadas en producción</p>
+        </div>
+        <div class="stack-grid">
+            <div class="stack-card reveal">
+                <i class="fa-brands fa-node-js"></i>
+                <span>Node.js</span>
+            </div>
+            <div class="stack-card reveal">
+                <i class="fa-solid fa-server"></i>
+                <span>Express.js</span>
+            </div>
+            <div class="stack-card reveal">
+                <i class="fa-solid fa-database"></i>
+                <span>MySQL</span>
+            </div>
+            <div class="stack-card reveal">
+                <i class="fa-brands fa-js"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="stack-card reveal">
+                <i class="fa-brands fa-html5"></i>
+                <span>HTML5</span>
+            </div>
+            <div class="stack-card reveal">
+                <i class="fa-brands fa-css3-alt"></i>
+                <span>CSS3</span>
+            </div>
+            <div class="stack-card reveal">
+                <i class="fa-solid fa-key"></i>
+                <span>JWT Auth</span>
+            </div>
+            <div class="stack-card reveal">
+                <i class="fa-brands fa-git-alt"></i>
+                <span>Git</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASOS DE EXITO -->
+    <section class="casos-exito" id="casos-exito">
+        <div class="seccion-titulo reveal">
+            <span class="seccion-tag">Proyectos</span>
+            <h2>Un proyecto real, no una maqueta</h2>
+            <p>Así se ve una tienda construida completamente por MetCommerce</p>
+        </div>
+
+        <div class="caso-card reveal">
+            <div class="caso-visual">
+                <div class="mockup mockup-caso">
+                    <div class="mockup-header">
+                        <span></span><span></span><span></span>
+                        <div class="mockup-url">tennix-shop</div>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="mockup-nav mockup-nav-caso"></div>
+                        <div class="mockup-grid mockup-grid-caso">
+                            <div class="mockup-card"></div>
+                            <div class="mockup-card"></div>
+                            <div class="mockup-card"></div>
+                            <div class="mockup-card"></div>
+                            <div class="mockup-card"></div>
+                            <div class="mockup-card"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="caso-info">
+                <span class="caso-badge">Proyecto Demo</span>
+                <h3>Tennix Shop</h3>
+                <p>Tienda de calzado en línea desarrollada de principio a fin: catálogo con variantes de color, carrito de compras, checkout, panel de administración y una API propia con autenticación, control de inventario y protección contra abuso.</p>
+                <ul class="caso-lista">
+                    <li><i class="fa-solid fa-check"></i> Frontend a medida (sin plantillas)</li>
+                    <li><i class="fa-solid fa-check"></i> API REST propia en Node.js + Express</li>
+                    <li><i class="fa-solid fa-check"></i> Base de datos MySQL relacional</li>
+                    <li><i class="fa-solid fa-check"></i> Panel admin con control de pedidos e inventario</li>
+                    <li><i class="fa-solid fa-check"></i> Autenticación JWT y rate-limiting</li>
+                </ul>
+                <div class="caso-metricas">
+                    <div class="caso-metrica">
+                        <strong>6</strong>
+                        <span>módulos de API</span>
+                    </div>
+                    <div class="caso-metrica">
+                        <strong>100%</strong>
+                        <span>responsive</span>
+                    </div>
+                    <div class="caso-metrica">
+                        <strong>1</strong>
+                        <span>panel admin propio</span>
+                    </div>
+                </div>
+                <a href="#contacto" class="btn-principal">Quiero un proyecto así</a>
+            </div>
+        </div>
+    </section>
+
     <!-- COMO FUNCIONA -->
     <section class="como-funciona" id="como-funciona">
-        <div class="seccion-titulo claro">
+        <div class="seccion-titulo claro reveal">
+            <span class="seccion-tag claro">Proceso</span>
             <h2>¿Cómo funciona?</h2>
             <p>En 4 pasos tu negocio está en línea</p>
         </div>
         <div class="pasos">
-            <div class="paso">
+            <div class="paso reveal">
                 <div class="paso-numero">1</div>
                 <h3>Nos contactas</h3>
                 <p>Cuéntanos sobre tu negocio y te hacemos una demostración en vivo sin costo.</p>
             </div>
-            <div class="paso-flecha">→</div>
-            <div class="paso">
+            <div class="paso-flecha" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="paso reveal">
                 <div class="paso-numero">2</div>
                 <h3>Personalizamos</h3>
                 <p>Adaptamos la plataforma a tu negocio: colores, productos y configuración.</p>
             </div>
-            <div class="paso-flecha">→</div>
-            <div class="paso">
+            <div class="paso-flecha" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="paso reveal">
                 <div class="paso-numero">3</div>
                 <h3>Lanzamos</h3>
                 <p>Tu tienda queda en línea con dominio propio y lista para recibir pedidos.</p>
             </div>
-            <div class="paso-flecha">→</div>
-            <div class="paso">
+            <div class="paso-flecha" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="paso reveal">
                 <div class="paso-numero">4</div>
                 <h3>Te capacitamos</h3>
                 <p>Te enseñamos a gestionar tu tienda de forma autónoma con soporte continuo.</p>
@@ -146,50 +274,102 @@
         </div>
     </section>
 
+    <!-- TESTIMONIOS -->
+    <section class="testimonios" id="testimonios">
+        <div class="seccion-titulo reveal">
+            <span class="seccion-tag">Testimonios</span>
+            <h2>Lo que dicen quienes probaron la plataforma</h2>
+            <p>Comentarios recogidos durante el programa piloto de Tennix Shop</p>
+        </div>
+        <div class="testimonios-grid">
+            <div class="testimonio-card reveal">
+                <div class="testimonio-estrellas"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Antes llevábamos el inventario en un cuaderno. Ahora todo queda registrado y organizado, y puedo revisarlo desde el celular."</p>
+                <div class="testimonio-autor">
+                    <div class="testimonio-avatar">CR</div>
+                    <div>
+                        <strong>Camila R.</strong>
+                        <span>Piloto — tienda de calzado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonio-card reveal">
+                <div class="testimonio-estrellas"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"El panel de administración es tan simple que lo aprendí a usar en un día, sin que nadie me lo explicara dos veces."</p>
+                <div class="testimonio-autor">
+                    <div class="testimonio-avatar">JM</div>
+                    <div>
+                        <strong>Julián M.</strong>
+                        <span>Piloto — tienda de calzado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonio-card reveal">
+                <div class="testimonio-estrellas"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>"Me gustó que la tienda se viera profesional desde el celular, que es justo donde compran mis clientes."</p>
+                <div class="testimonio-autor">
+                    <div class="testimonio-avatar">DG</div>
+                    <div>
+                        <strong>Daniela G.</strong>
+                        <span>Piloto — tienda de calzado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA INTERMEDIO -->
+    <section class="cta-banner reveal">
+        <h2>¿Tu negocio podría ser el próximo caso de éxito?</h2>
+        <p>Agenda una demo gratuita y te mostramos exactamente cómo se vería tu tienda.</p>
+        <a href="#contacto" class="btn-principal">Solicitar Demo Gratis <i class="fa-solid fa-arrow-right"></i></a>
+    </section>
+
     <!-- PRECIOS -->
     <section class="precios" id="precios">
-        <div class="seccion-titulo">
+        <div class="seccion-titulo reveal">
+            <span class="seccion-tag">Precios</span>
             <h2>Planes y Precios</h2>
             <p>Pago único, sin mensualidades sorpresa</p>
         </div>
         <div class="precios-grid">
-            <div class="precio-card">
+            <div class="precio-card reveal">
                 <h3>Básico</h3>
-                <div class="precio-valor">$1.000.000 COP</div>
+                <div class="precio-valor">$1.000.000 <span>COP</span></div>
                 <ul>
-                    <li>✅ Catálogo hasta 50 productos</li>
-                    <li>✅ Carrito de compras</li>
-                    <li>✅ Control de inventario</li>
-                    <li>✅ 1 mes de soporte</li>
-                    <li>❌ Panel de reportes</li>
-                    <li>❌ Dominio personalizado</li>
+                    <li><i class="fa-solid fa-check"></i> Catálogo hasta 50 productos</li>
+                    <li><i class="fa-solid fa-check"></i> Carrito de compras</li>
+                    <li><i class="fa-solid fa-check"></i> Control de inventario</li>
+                    <li><i class="fa-solid fa-check"></i> 1 mes de soporte</li>
+                    <li class="no"><i class="fa-solid fa-xmark"></i> Panel de reportes</li>
+                    <li class="no"><i class="fa-solid fa-xmark"></i> Dominio personalizado</li>
                 </ul>
                 <a href="#contacto" class="btn-precio">Empezar</a>
             </div>
-            <div class="precio-card destacado">
+            <div class="precio-card destacado reveal">
                 <div class="badge-popular">Más Popular</div>
                 <h3>Profesional</h3>
-                <div class="precio-valor">$3.000.000 COP</div>
+                <div class="precio-valor">$3.000.000 <span>COP</span></div>
                 <ul>
-                    <li>✅ Productos ilimitados</li>
-                    <li>✅ Carrito de compras</li>
-                    <li>✅ Control de inventario</li>
-                    <li>✅ Panel de reportes</li>
-                    <li>✅ Dominio personalizado</li>
-                    <li>✅ 3 meses de soporte</li>
+                    <li><i class="fa-solid fa-check"></i> Productos ilimitados</li>
+                    <li><i class="fa-solid fa-check"></i> Carrito de compras</li>
+                    <li><i class="fa-solid fa-check"></i> Control de inventario</li>
+                    <li><i class="fa-solid fa-check"></i> Panel de reportes</li>
+                    <li><i class="fa-solid fa-check"></i> Dominio personalizado</li>
+                    <li><i class="fa-solid fa-check"></i> 3 meses de soporte</li>
                 </ul>
                 <a href="#contacto" class="btn-precio">Empezar</a>
             </div>
-            <div class="precio-card">
+            <div class="precio-card reveal">
                 <h3>Empresarial</h3>
                 <div class="precio-valor">Personalizado</div>
                 <ul>
-                    <li>✅ Todo lo del Profesional</li>
-                    <li>✅ Pasarela de pagos</li>
-                    <li>✅ Múltiples usuarios admin</li>
-                    <li>✅ Analítica de ventas</li>
-                    <li>✅ Actualizaciones incluidas</li>
-                    <li>✅ 6 meses de soporte</li>
+                    <li><i class="fa-solid fa-check"></i> Todo lo del Profesional</li>
+                    <li><i class="fa-solid fa-check"></i> Pasarela de pagos</li>
+                    <li><i class="fa-solid fa-check"></i> Múltiples usuarios admin</li>
+                    <li><i class="fa-solid fa-check"></i> Analítica de ventas</li>
+                    <li><i class="fa-solid fa-check"></i> Actualizaciones incluidas</li>
+                    <li><i class="fa-solid fa-check"></i> 6 meses de soporte</li>
                 </ul>
                 <a href="#contacto" class="btn-precio">Empezar</a>
             </div>
@@ -198,49 +378,68 @@
 
     <!-- CONTACTO -->
     <section class="contacto" id="contacto">
-        <div class="seccion-titulo claro">
+        <div class="seccion-titulo claro reveal">
+            <span class="seccion-tag claro">Contacto</span>
             <h2>¿Listo para digitalizar tu negocio?</h2>
             <p>Escríbenos y te contactamos en menos de 24 horas</p>
         </div>
         <div class="contacto-contenido">
-            <div class="contacto-info">
+            <div class="contacto-info reveal">
                 <div class="contacto-item">
-                    <span>📍</span>
+                    <span><i class="fa-solid fa-location-dot"></i></span>
                     <p>San Pedro de los Milagros, Antioquia, Colombia</p>
                 </div>
                 <div class="contacto-item">
-                    <span>📱</span>
+                    <span><i class="fa-brands fa-whatsapp"></i></span>
                     <p>+57 304 290 7179</p>
                 </div>
                 <div class="contacto-item">
-                    <span>✉️</span>
+                    <span><i class="fa-solid fa-envelope"></i></span>
                     <p>metcommerce1@gmail.com</p>
                 </div>
             </div>
-            <div class="contacto-form">
+            <form class="contacto-form reveal" onsubmit="return false;">
                 <input type="text" placeholder="Nombre de tu negocio" id="nombre">
                 <input type="tel" placeholder="Tu número de WhatsApp" id="telefono">
                 <select id="plan">
                     <option value="">¿Qué plan te interesa?</option>
-                    <option value="basico">Básico — $1.000.000</option>
-                    <option value="profesional">Profesional — $3.000.000</option>
-                    <option value="empresarial">Empresarial — Personalizado</option>
+                    <option value="Básico">Básico — $1.000.000</option>
+                    <option value="Profesional">Profesional — $3.000.000</option>
+                    <option value="Empresarial">Empresarial — Personalizado</option>
                 </select>
                 <textarea placeholder="Cuéntanos sobre tu negocio" id="mensaje" rows="4"></textarea>
-                <button class="btn-principal" onclick="enviarFormulario()">Solicitar Demo Gratis</button>
-            </div>
+                <button class="btn-principal" type="submit" onclick="enviarFormulario()">
+                    <i class="fa-brands fa-whatsapp"></i> Solicitar Demo Gratis
+                </button>
+            </form>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-contenido">
-            <img src="./img/Logo.png" alt="MetCommerce Logo" style="height: 110px; width: 220px;">
-            <p>© 2025 MetCommerce — Soluciones Digitales para Negocios Locales</p>
+            <img src="./img/Logo.png" alt="MetCommerce" width="220" height="110" loading="lazy" decoding="async">
+            <ul class="footer-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#tecnologias">Tecnología</a></li>
+                <li><a href="#casos-exito">Proyectos</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <p>© 2026 MetCommerce — Software de e-commerce a medida</p>
             <p>San Pedro de los Milagros, Antioquia, Colombia</p>
         </div>
     </footer>
 
-    <script src="./script.js"></script>
+    <a href="https://wa.me/573042907179" target="_blank" rel="noopener" class="whatsapp-flotante" aria-label="Escribir por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="./script.js" defer></script>
 </body>
 </html>
