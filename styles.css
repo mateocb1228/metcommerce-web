@@ -69,11 +69,9 @@ a {
 }
 
 .servicios-grid .reveal:nth-child(2),
-.stack-grid .reveal:nth-child(2),
-.testimonios-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+.stack-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
 .servicios-grid .reveal:nth-child(3),
-.stack-grid .reveal:nth-child(3),
-.testimonios-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+.stack-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
 .servicios-grid .reveal:nth-child(4),
 .stack-grid .reveal:nth-child(4) { transition-delay: 0.24s; }
 .servicios-grid .reveal:nth-child(5),
@@ -516,38 +514,41 @@ a {
     50% { transform: translate(-50%, 10px); }
 }
 
-/* ===== ESTADISTICAS ===== */
-.estadisticas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+/* ===== DESTACADOS ===== */
+.destacados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     background: var(--azul-oscuro);
     padding: 40px 24px;
 }
 
-.stat {
+.destacado {
     text-align: center;
-    padding: 20px 40px;
+    padding: 20px 28px;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.stat:last-child {
+.destacado:last-child {
     border-right: none;
 }
 
-.stat h3 {
-    font-size: clamp(30px, 4vw, 42px);
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--celeste), var(--celeste-claro));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.destacado i {
+    font-size: 28px;
+    color: var(--celeste);
+    margin-bottom: 12px;
 }
 
-.stat p {
+.destacado h3 {
+    color: var(--blanco);
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.destacado p {
     color: var(--celeste-pastel);
     font-size: 14px;
-    margin-top: 5px;
+    line-height: 1.5;
 }
 
 /* ===== SERVICIOS ===== */
@@ -670,6 +671,21 @@ a {
     flex: 1 1 380px;
     display: flex;
     justify-content: center;
+    position: relative;
+    /* Espacio para que el teléfono sobresalga por debajo del navegador */
+    padding-bottom: 40px;
+}
+
+.mockup-telefono {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: clamp(110px, 24%, 150px);
+    border: 6px solid #1a1a2e;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #1a1a2e;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
 .mockup-caso {
@@ -739,26 +755,48 @@ a {
     font-size: 13px;
 }
 
-.caso-metricas {
+.caso-botones {
     display: flex;
-    gap: 30px;
-    margin-bottom: 30px;
     flex-wrap: wrap;
+    gap: 14px;
 }
 
-.caso-metrica {
-    display: flex;
-    flex-direction: column;
-}
-
-.caso-metrica strong {
-    font-size: 26px;
-    font-weight: 800;
+.btn-borde {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: 2px solid var(--azul);
     color: var(--azul);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: background var(--transicion), color var(--transicion);
 }
 
-.caso-metrica span {
-    font-size: 13px;
+.btn-borde:hover {
+    background: var(--azul);
+    color: var(--blanco);
+}
+
+.caso-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto 0;
+}
+
+.caso-galeria figure {
+    background: var(--fondo-suave);
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.caso-galeria figcaption {
+    padding: 14px 18px;
+    font-size: 14px;
     color: var(--texto-suave);
 }
 
@@ -828,78 +866,6 @@ a {
     align-items: center;
     font-size: 22px;
     color: var(--celeste-claro);
-}
-
-/* ===== TESTIMONIOS ===== */
-.testimonios {
-    padding: 90px 24px;
-    background: var(--fondo-suave);
-}
-
-.testimonios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.testimonio-card {
-    background: var(--blanco);
-    border-radius: var(--radio);
-    padding: 32px 28px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-    transition: transform var(--transicion), box-shadow var(--transicion);
-}
-
-.testimonio-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(0, 119, 182, 0.12);
-}
-
-.testimonio-estrellas {
-    color: #f5b400;
-    font-size: 14px;
-    margin-bottom: 14px;
-}
-
-.testimonio-card > p {
-    color: var(--texto);
-    line-height: 1.6;
-    font-size: 15px;
-    margin-bottom: 22px;
-    font-style: italic;
-}
-
-.testimonio-autor {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.testimonio-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--azul), var(--celeste));
-    color: var(--blanco);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 14px;
-    flex-shrink: 0;
-}
-
-.testimonio-autor strong {
-    display: block;
-    font-size: 14px;
-    color: var(--azul-oscuro);
-}
-
-.testimonio-autor span {
-    font-size: 13px;
-    color: var(--texto-suave);
 }
 
 /* ===== CTA BANNER ===== */
@@ -1319,22 +1285,20 @@ a {
         justify-content: center;
     }
 
-    .estadisticas {
-        gap: 10px;
-    }
-
-    .stat {
-        padding: 14px 18px;
-        flex: 1 1 45%;
+    .destacado {
+        padding: 16px 12px;
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .destacado:last-child {
+        border-bottom: none;
     }
 
     .servicios,
     .tecnologias,
     .casos-exito,
     .como-funciona,
-    .testimonios,
     .precios,
     .contacto {
         padding: 60px 20px;
@@ -1345,8 +1309,9 @@ a {
         gap: 30px;
     }
 
-    .caso-metricas {
-        gap: 20px;
+    .caso-botones a {
+        flex: 1 1 100%;
+        justify-content: center;
     }
 
     .pasos {
@@ -1394,12 +1359,11 @@ a {
         padding: 120px 80px 90px;
     }
 
-    .estadisticas,
+    .destacados,
     .servicios,
     .tecnologias,
     .casos-exito,
     .como-funciona,
-    .testimonios,
     .precios,
     .contacto {
         padding-left: 80px;
