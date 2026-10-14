@@ -73,43 +73,6 @@ const observadorReveal = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observadorReveal.observe(el));
 
-// ===== CONTADORES ANIMADOS =====
-function animarContador(el) {
-    const objetivo = parseFloat(el.dataset.target);
-    const sufijo = el.dataset.suffix || '';
-    const duracion = 1500;
-    const inicio = performance.now();
-
-    function paso(ahora) {
-        const progreso = Math.min((ahora - inicio) / duracion, 1);
-        const facilitado = 1 - Math.pow(1 - progreso, 3);
-        const valorActual = Math.floor(facilitado * objetivo);
-        el.textContent = valorActual + sufijo;
-        if (progreso < 1) {
-            requestAnimationFrame(paso);
-        } else {
-            el.textContent = objetivo + sufijo;
-        }
-    }
-
-    if (prefiereMenosMovimiento) {
-        el.textContent = objetivo + sufijo;
-        return;
-    }
-    requestAnimationFrame(paso);
-}
-
-const observadorContadores = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animarContador(entry.target);
-            observadorContadores.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-num').forEach(el => observadorContadores.observe(el));
-
 // ===== PARTICULAS DE FONDO EN EL HERO =====
 (function iniciarParticulas() {
     const canvas = document.getElementById('particles');
