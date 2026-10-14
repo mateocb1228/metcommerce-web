@@ -1,8 +1,16 @@
 # Cabeceras de seguridad que Netlify aplica a todo el sitio.
 # Si se agrega un servicio externo (scripts, fuentes, analítica), hay que permitirlo en la CSP
 # o el navegador lo bloquea; y también mencionarlo en privacidad.html.
+#
+# Recuadro "Powered by Netlify": Netlify inyecta /.netlify/scripts/hud, que arma un iframe srcdoc
+# con un <script> y un <style> en línea. Por eso:
+# - script-src lleva el hash de ese <script> (no cambia entre visitantes). Si Netlify actualiza su
+#   script, el hash deja de coincidir: la consola muestra el nuevo hash y hay que reemplazarlo aquí.
+# - style-src-elem permite <style> en línea, porque el del recuadro incluye el tamaño de la ventana
+#   y su hash cambia con cada visitante. Los atributos style="" siguen bloqueados (style-src).
+# - form-action permite app.netlify.com, adonde envía el formulario del recuadro.
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-mTJ4cJaTm2Gw95GeXEpZdvEEY9ybh6FZu1bwcNE7QlY='; style-src 'self' https://fonts.googleapis.com; style-src-elem 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://app.netlify.com; frame-ancestors 'none'; upgrade-insecure-requests
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
