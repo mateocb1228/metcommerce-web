@@ -44,6 +44,11 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* Contenedor de los <symbol>; con clase y no con style="" para que la CSP no tenga que permitir estilos en línea */
+.sprite-iconos {
+    display: none;
+}
+
 /* Iconos SVG del sprite: toman el tamaño de la fuente y el color del texto, como antes Font Awesome */
 .icono {
     display: inline-block;
