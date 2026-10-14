@@ -485,35 +485,17 @@ a {
     padding: 20px;
 }
 
-.mockup-nav {
-    height: 35px;
-    background: linear-gradient(135deg, var(--azul-oscuro), var(--azul));
-    border-radius: 8px;
-    margin-bottom: 20px;
+/* Hero: navegador con el catálogo y, encima, el celular (usa .mockup-telefono del caso) */
+.hero-visual {
+    position: relative;
+    width: min(560px, 100%);
+    /* Espacio para que el teléfono sobresalga por debajo del navegador */
+    padding-bottom: 40px;
 }
 
-.mockup-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-
-.mockup-card {
-    height: 80px;
-    background: linear-gradient(135deg, var(--celeste-pastel), var(--celeste-claro));
-    border-radius: 8px;
-    animation: pulso 2s infinite alternate;
-}
-
-.mockup-card:nth-child(2) { animation-delay: 0.3s; }
-.mockup-card:nth-child(3) { animation-delay: 0.6s; }
-.mockup-card:nth-child(4) { animation-delay: 0.9s; }
-.mockup-card:nth-child(5) { animation-delay: 1.2s; }
-.mockup-card:nth-child(6) { animation-delay: 1.5s; }
-
-@keyframes pulso {
-    from { opacity: 0.7; }
-    to { opacity: 1; }
+/* Más angosto que el contenedor para que el celular sobresalga a la derecha */
+.mockup-hero {
+    width: calc(100% - 30px);
 }
 
 .scroll-cue {
@@ -568,6 +550,129 @@ a {
     color: var(--celeste-pastel);
     font-size: 14px;
     line-height: 1.5;
+}
+
+/* ===== PARA QUÉ NEGOCIOS ===== */
+.negocios {
+    padding: 90px 24px;
+    background: var(--blanco);
+}
+
+.negocios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.negocios-columna {
+    background: var(--fondo-suave);
+    border-radius: var(--radio);
+    padding: 32px 30px;
+}
+
+.negocios-columna h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--azul-oscuro);
+    margin-bottom: 20px;
+}
+
+.negocios-lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.negocios-lista li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.negocios-lista .icono {
+    font-size: 22px;
+    color: var(--azul);
+    width: 28px;
+    margin-top: 2px;
+}
+
+.negocios-lista strong {
+    display: block;
+    color: var(--azul-oscuro);
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.negocios-lista p {
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.negocios-consulta {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-top: 24px;
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 119, 182, 0.2);
+}
+
+.negocios-consulta .icono {
+    font-size: 20px;
+    color: var(--azul);
+    width: 28px;
+    margin-top: 2px;
+}
+
+.negocios-consulta p {
+    color: var(--texto);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.negocios-consulta strong {
+    color: var(--azul-oscuro);
+}
+
+.negocios-lista-no {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.negocios-lista-no li {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    color: var(--texto);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.negocios-lista-no .icono {
+    color: #c0392b;
+    font-size: 14px;
+}
+
+.negocios-nota {
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.negocios-nota a {
+    color: var(--azul);
+    font-weight: 600;
 }
 
 /* ===== SERVICIOS ===== */
@@ -1665,6 +1770,7 @@ a {
         border-bottom: none;
     }
 
+    .negocios,
     .servicios,
     .tecnologias,
     .casos-exito,
@@ -1736,6 +1842,7 @@ a {
     }
 
     .destacados,
+    .negocios,
     .servicios,
     .tecnologias,
     .casos-exito,
