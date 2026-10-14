@@ -1276,12 +1276,25 @@ a {
     gap: 15px;
 }
 
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    color: var(--celeste-pastel);
+    font-size: 14px;
+    font-weight: 600;
+}
+
 .contacto-form input,
 .contacto-form select,
 .contacto-form textarea {
     padding: 14px 18px;
     border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    /* Borde visible (contraste 3:1) para que se note dónde está cada campo */
+    border: 2px solid rgba(255, 255, 255, 0.45);
     background: rgba(255, 255, 255, 0.08);
     color: var(--blanco);
     font-size: 15px;
@@ -1292,7 +1305,7 @@ a {
 
 .contacto-form input::placeholder,
 .contacto-form textarea::placeholder {
-    color: var(--celeste-claro);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .contacto-form select option {
@@ -1304,6 +1317,41 @@ a {
 .contacto-form select:focus,
 .contacto-form textarea:focus {
     border-color: var(--celeste);
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.45);
+}
+
+.contacto-form [aria-invalid="true"] {
+    border-color: #ff9b9b;
+}
+
+.campo-error {
+    color: #ffc2c2;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.campo-error:empty {
+    display: none;
+}
+
+.form-nota {
+    color: var(--celeste-pastel);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.form-nota a {
+    color: var(--blanco);
+}
+
+.form-estado {
+    color: var(--celeste-claro);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-estado:empty {
+    display: none;
 }
 
 .contacto-form button {

@@ -462,19 +462,44 @@
                     <p>metcommerce1@gmail.com</p>
                 </div>
             </div>
-            <form class="contacto-form reveal" onsubmit="return false;">
-                <input type="text" placeholder="Nombre de tu negocio" id="nombre">
-                <input type="tel" placeholder="Tu número de WhatsApp" id="telefono">
-                <select id="plan">
-                    <option value="">¿Qué plan te interesa?</option>
-                    <option value="Básico">Plan Básico — $800.000 + $50.000/mes</option>
-                    <option value="Completo">Plan Completo — $1.500.000 + $80.000/mes</option>
-                    <option value="Aún no sé">Aún no sé</option>
-                </select>
-                <textarea placeholder="Cuéntanos sobre tu negocio" id="mensaje" rows="4"></textarea>
-                <button class="btn-principal" type="submit" onclick="enviarFormulario()">
-                    <i class="fa-brands fa-whatsapp"></i> Solicitar Demo Gratis
+            <!-- novalidate: la validación la hace script.js para mostrar los errores junto a cada campo -->
+            <form class="contacto-form reveal" id="formContacto" novalidate>
+                <!-- Los lectores de pantalla ya anuncian "obligatorio" por el atributo required -->
+                <p class="form-nota" aria-hidden="true">Los campos con * son obligatorios.</p>
+
+                <div class="campo">
+                    <label for="nombre">Nombre de tu negocio <span aria-hidden="true">*</span></label>
+                    <input type="text" id="nombre" name="nombre" autocomplete="organization" required aria-describedby="nombre-error">
+                    <p class="campo-error" id="nombre-error"></p>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Tu número de WhatsApp <span aria-hidden="true">*</span></label>
+                    <input type="tel" id="telefono" name="telefono" inputmode="tel" autocomplete="tel" placeholder="Ej. 300 123 4567" required aria-describedby="telefono-error">
+                    <p class="campo-error" id="telefono-error"></p>
+                </div>
+
+                <div class="campo">
+                    <label for="plan">¿Qué plan te interesa? <span aria-hidden="true">*</span></label>
+                    <select id="plan" name="plan" required aria-describedby="plan-error">
+                        <option value="">Elige una opción</option>
+                        <option value="Básico">Plan Básico — $800.000 + $50.000/mes</option>
+                        <option value="Completo">Plan Completo — $1.500.000 + $80.000/mes</option>
+                        <option value="Aún no sé">Aún no sé</option>
+                    </select>
+                    <p class="campo-error" id="plan-error"></p>
+                </div>
+
+                <div class="campo">
+                    <label for="mensaje">Cuéntanos sobre tu negocio (opcional)</label>
+                    <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                </div>
+
+                <button class="btn-principal" type="submit">
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Solicitar Demo Gratis
                 </button>
+                <p class="form-nota">Al enviar se abre WhatsApp con tu mensaje listo; tú decides si lo envías. Consulta nuestra <a href="./privacidad.html">política de privacidad</a>.</p>
+                <p class="form-estado" id="formEstado" role="status"></p>
             </form>
         </div>
     </section>

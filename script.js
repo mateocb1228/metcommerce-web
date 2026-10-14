@@ -46,19 +46,75 @@ if (scrollTopBtn) {
 }
 
 // ===== FORMULARIO DE CONTACTO =====
-function enviarFormulario() {
-    const nombre = document.getElementById('nombre').value.trim();
-    const telefono = document.getElementById('telefono').value.trim();
-    const plan = document.getElementById('plan').value;
-    const mensaje = document.getElementById('mensaje').value.trim();
+const formContacto = document.getElementById('formContacto');
 
-    if (!nombre || !telefono || !plan) {
-        alert('⚠️ Por favor completa los campos obligatorios.');
-        return;
+// Cada campo obligatorio con la función que devuelve su mensaje de error ('' si es válido)
+const validaciones = {
+    nombre: valor => valor ? '' : 'Escribe el nombre de tu negocio.',
+    telefono: valor => {
+        if (!valor) return 'Escribe tu número de WhatsApp.';
+        const digitos = valor.replace(/\D/g, '');
+        return digitos.length >= 7 && digitos.length <= 15 ? '' : 'Revisa el número: debe tener entre 7 y 15 dígitos.';
+    },
+    plan: valor => valor ? '' : 'Elige el plan que te interesa.'
+};
+
+function mostrarError(campo, mensaje) {
+    const error = document.getElementById(`${campo.id}-error`);
+    error.textContent = mensaje;
+    // aria-invalid vacío cuenta como "false", por eso se pone "true" explícito
+    if (mensaje) campo.setAttribute('aria-invalid', 'true');
+    else campo.removeAttribute('aria-invalid');
+}
+
+if (formContacto) {
+    formContacto.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+        const estado = document.getElementById('formEstado');
+        estado.textContent = '';
+
+        let primerInvalido = null;
+        for (const [id, validar] of Object.entries(validaciones)) {
+            const campo = document.getElementById(id);
+            const mensaje = validar(campo.value.trim());
+            mostrarError(campo, mensaje);
+            if (mensaje && !primerInvalido) primerInvalido = campo;
+        }
+
+        // El foco va al primer campo con error; el lector de pantalla lee su mensaje por aria-describedby
+        if (primerInvalido) {
+            primerInvalido.focus();
+            return;
+        }
+
+        const datos = new FormData(formContacto);
+        const lineas = [
+            'Hola MetCommerce! 👋',
+            '',
+            `*Negocio:* ${datos.get('nombre').trim()}`,
+            `*WhatsApp:* ${datos.get('telefono').trim()}`,
+            `*Plan de interés:* ${datos.get('plan')}`
+        ];
+        const mensaje = datos.get('mensaje').trim();
+        if (mensaje) lineas.push(`*Mensaje:* ${mensaje}`);
+
+        const url = `https://wa.me/573042907179?text=${encodeURIComponent(lineas.join('\n'))}`;
+        // Sin 'noopener' en window.open: con él siempre devuelve null y no se podría
+        // saber si el navegador bloqueó la ventana. Se corta el opener a mano.
+        const ventana = window.open(url, '_blank');
+        if (ventana) ventana.opener = null;
+        else window.location.href = url;
+        estado.textContent = 'Abrimos WhatsApp con tu mensaje. Solo tienes que enviarlo.';
+    });
+
+    // Al corregir un campo, su error se quita en cuanto vuelve a ser válido
+    for (const id of Object.keys(validaciones)) {
+        const campo = document.getElementById(id);
+        const evento = campo.tagName === 'SELECT' ? 'change' : 'input';
+        campo.addEventListener(evento, () => {
+            if (campo.hasAttribute('aria-invalid') && !validaciones[id](campo.value.trim())) mostrarError(campo, '');
+        });
     }
-
-    const texto = `Hola MetCommerce! 👋\n\n*Negocio:* ${nombre}\n*Plan de interés:* ${plan}\n*Mensaje:* ${mensaje}`;
-    window.open(`https://wa.me/573042907179?text=${encodeURIComponent(texto)}`, '_blank');
 }
 
 // ===== ANIMACION AL HACER SCROLL (fade-in escalonado) =====
