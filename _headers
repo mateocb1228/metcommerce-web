@@ -1,0 +1,9 @@
+# Cabeceras de seguridad que Netlify aplica a todo el sitio.
+# Si se agrega un servicio externo (scripts, fuentes, analítica), hay que permitirlo en la CSP
+# o el navegador lo bloquea; y también mencionarlo en privacidad.html.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
