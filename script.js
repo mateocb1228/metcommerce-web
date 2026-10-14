@@ -115,6 +115,15 @@ if (formContacto) {
             if (campo.hasAttribute('aria-invalid') && !validaciones[id](campo.value.trim())) mostrarError(campo, '');
         });
     }
+
+    // Los botones de los planes (data-plan) dejan ese plan elegido en el formulario
+    document.querySelectorAll('[data-plan]').forEach(boton => {
+        boton.addEventListener('click', () => {
+            const plan = document.getElementById('plan');
+            plan.value = boton.dataset.plan;
+            plan.dispatchEvent(new Event('change'));
+        });
+    });
 }
 
 // ===== ANIMACION AL HACER SCROLL (fade-in escalonado) =====
