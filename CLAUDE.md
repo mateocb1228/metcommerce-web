@@ -15,6 +15,9 @@ Página corporativa de MetCommerce, publicada en https://metcommerce.netlify.app
 - **Planes** (definidos por el usuario el 2026-10-13):
   - **Básico:** $800.000 COP de implementación + $50.000/mes. Tienda en línea, catálogo, carrito y panel básico.
   - **Completo:** $1.500.000 COP de implementación + $80.000/mes. Todo lo del Básico más pagos con Mercado Pago, correos automáticos, backups diarios y soporte prioritario.
+  - En el Básico no hay pagos en línea: el cliente hace el pedido y coordina el pago directamente con el negocio.
+  - **Sin definir todavía:** qué cubre la mensualidad (hosting, dominio), permanencia mínima, tiempo de implementación y cambio de plan. No afirmarlos en el sitio.
+- En "Sobre nosotros" se menciona que MetCommerce nace como proyecto de grado del SENA. La política de privacidad identifica al responsable solo como "MetCommerce", sin NIT; así lo decidió el usuario.
 - **Tennix Shop** es la tienda demo propia del autor, creada para mostrar lo que MetCommerce puede hacer. Se presenta como "tienda demo en producción", no como cliente ni como "proyecto demo" de maqueta.
 
 ## Tennix Shop: qué se puede afirmar
