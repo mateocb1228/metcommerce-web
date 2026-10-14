@@ -52,6 +52,7 @@ Solo funciones reales, verificables en https://tennix-shop.com:
 - **Formulario de contacto:** no guarda datos; arma el mensaje y abre WhatsApp. La validación y el envío están en `script.js`, sin `onclick` ni `alert()`.
 - **Cabeceras de seguridad:** `_headers` define la CSP. No usar `<script>` en línea, `style=""` ni `onclick`; los estilos van en `styles.css` y el JS en `script.js`. Si se agrega un servicio externo (fuentes, scripts, analítica), permitirlo en la CSP y mencionarlo en la sección 4 de `privacidad.html`.
 - **Recuadro "Powered by Netlify":** el plan no permite quitarlo. La CSP lo permite con el hash de su `<script>` y con `'unsafe-inline'` solo en `style-src-elem` (decisión del usuario el 2026-10-13; los detalles están en el comentario de `_headers`). Si la consola vuelve a mostrar un bloqueo de `script-src` con un hash nuevo, Netlify actualizó su script: reemplazar el hash en `_headers`.
+- **arquitectura.html:** detalle técnico para el jurado del SENA. Cada afirmación se verificó contra el código de `tennix-shop` (solo lectura) el 2026-10-13; si Tennix cambia (dependencias, rutas, límites, backups), actualizar esta página.
 - **404.html:** Netlify la sirve en cualquier URL inexistente, también en subcarpetas; por eso usa rutas absolutas (`/styles.css`).
 - **Logo:** las páginas usan `img/logo-icono.webp` (120px de alto). `img/Logo-icono.png` es el original, para regenerar íconos; no cargarlo en las páginas.
 - Paleta: azul oscuro `#03045e`, azul `#0077b6`, celeste `#00b4d8` (variables en `:root` de `styles.css`).

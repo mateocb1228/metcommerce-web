@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cómo está construida la plataforma MetCommerce: componentes, tecnologías, flujo de un pedido, seguridad y límites conocidos, tomando como referencia la tienda demo Tennix Shop.">
+    <title>Arquitectura de la plataforma — MetCommerce</title>
+    <link rel="canonical" href="https://metcommerce.netlify.app/arquitectura">
+    <meta name="theme-color" content="#03045e">
+
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icono-192.png">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MetCommerce">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:url" content="https://metcommerce.netlify.app/arquitectura">
+    <meta property="og:title" content="Arquitectura de la plataforma — MetCommerce">
+    <meta property="og:description" content="Componentes, tecnologías, flujo de un pedido y seguridad de la plataforma MetCommerce.">
+    <meta property="og:image" content="https://metcommerce.netlify.app/img/og-metcommerce.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="./" class="nav-logo">
+            <img src="./img/logo-icono.webp" alt="" width="138" height="120" decoding="async">
+            <span class="nav-logo-texto">MetCommerce</span>
+        </a>
+        <a href="./" class="btn-nav btn-nav-visible">Volver al inicio</a>
+    </nav>
+
+    <main class="legal arquitectura">
+        <h1>Arquitectura de la plataforma</h1>
+        <p class="legal-fecha">Proyecto de grado del SENA · Actualizado el 13 de octubre de 2026</p>
+
+        <p>Esta página explica cómo está construida la plataforma MetCommerce, tomando como referencia la tienda demo <a href="https://tennix-shop.com" target="_blank" rel="noopener">Tennix Shop</a>, que está en producción. Es para quien quiera revisar el detalle técnico; si buscas qué incluye cada plan, está en la <a href="./#modulos">página principal</a>.</p>
+
+        <h2>1. Componentes</h2>
+        <ul>
+            <li><strong>Tienda</strong> (tennix-shop.com): sitio estático en HTML, CSS y JavaScript, sin frameworks ni paso de compilación.</li>
+            <li><strong>Panel de administración</strong> (admin.tennix-shop.com): también estático; todo lo que muestra lo pide a la API.</li>
+            <li><strong>API REST</strong> (api.tennix-shop.com): Node.js con Express. Agrupa las rutas en autenticación, dashboard, categorías, productos, pedidos, inventario, pagos, backups y vistas previas para redes sociales.</li>
+            <li><strong>Base de datos</strong>: MySQL.</li>
+            <li><strong>Servicios externos</strong>: Mercado Pago (pagos) y Gmail (correos).</li>
+            <li><strong>Alojamiento</strong>: Hostinger.</li>
+        </ul>
+
+        <h2>2. Cómo se comunican</h2>
+        <div class="tabla-desplazable" tabindex="0" role="region" aria-label="Flujos principales entre los componentes">
+            <table class="tabla-tecnica">
+                <caption>Flujos principales entre los componentes</caption>
+                <thead>
+                    <tr><th scope="col">Desde</th><th scope="col">Hacia</th><th scope="col">Para qué</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Tienda</td><td>API</td><td>Leer el catálogo y crear pedidos.</td></tr>
+                    <tr><td>Tienda</td><td>Mercado Pago</td><td>El cliente paga en Checkout Pro (redirección, sin iframe) y vuelve a la página de confirmación.</td></tr>
+                    <tr><td>Mercado Pago</td><td>API</td><td>Webhook que avisa el resultado del pago; la API verifica su firma.</td></tr>
+                    <tr><td>Panel</td><td>API</td><td>Gestionar productos, tallas y pedidos con sesión JWT.</td></tr>
+                    <tr><td>API</td><td>MySQL</td><td>Guardar y consultar todos los datos.</td></tr>
+                    <tr><td>API</td><td>Gmail</td><td>Correos de pedido, pago aprobado, despacho y backups.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>3. Tecnologías</h2>
+        <div class="tabla-desplazable" tabindex="0" role="region" aria-label="Tecnologías por capa">
+            <table class="tabla-tecnica">
+                <caption>Tecnologías por capa y para qué se usan</caption>
+                <thead>
+                    <tr><th scope="col">Capa</th><th scope="col">Tecnología</th><th scope="col">Uso</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Tienda y panel</td><td>HTML, CSS y JavaScript</td><td>Páginas estáticas, sin compilación.</td></tr>
+                    <tr><td>API</td><td>Node.js 22 y Express 4</td><td>Rutas REST.</td></tr>
+                    <tr><td>Base de datos</td><td>MySQL con mysql2</td><td>Consultas parametrizadas; los pedidos se crean dentro de una transacción.</td></tr>
+                    <tr><td>Sesión del panel</td><td>jsonwebtoken y bcryptjs</td><td>Tokens JWT y contraseñas cifradas.</td></tr>
+                    <tr><td>Seguridad HTTP</td><td>helmet y CSP</td><td>Cabeceras de seguridad en la API y en la tienda.</td></tr>
+                    <tr><td>Pagos</td><td>SDK de Mercado Pago</td><td>Checkout Pro y webhook con firma HMAC.</td></tr>
+                    <tr><td>Imágenes</td><td>multer y sharp</td><td>Subida de fotos y conversión a WebP: 1200 px y miniatura de 400 px.</td></tr>
+                    <tr><td>Correos</td><td>nodemailer con Gmail</td><td>Avisos al comprador y a la tienda.</td></tr>
+                    <tr><td>Tareas programadas</td><td>node-cron</td><td>Backup diario a las 2:00 a. m. (hora de Colombia).</td></tr>
+                    <tr><td>Rendimiento</td><td>compression</td><td>Respuestas de la API comprimidas.</td></tr>
+                    <tr><td>Integración continua</td><td>GitHub Actions</td><td>Pruebas con MySQL 8 antes de cada despliegue.</td></tr>
+                    <tr><td>Monitoreo</td><td>UptimeRobot</td><td>Vigila un endpoint de salud que también comprueba la base de datos.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>4. Ciclo de un pedido</h2>
+        <ol class="pasos-pedido">
+            <li><strong>Pendiente:</strong> el cliente confirma su carrito. El pedido recibe un identificador aleatorio (UUID), no un número consecutivo, para que nadie pueda ver pedidos ajenos cambiando el número en la URL. Si no se paga en 2 horas, vence.</li>
+            <li><strong>Confirmado:</strong> Mercado Pago aprueba el pago. El comprador y la tienda reciben el correo de pago aprobado.</li>
+            <li><strong>Despachado:</strong> el administrador guarda el número de guía y el comprador recibe el correo de despacho.</li>
+            <li><strong>Entregado.</strong> En cualquier momento el pedido también puede quedar <strong>cancelado</strong>.</li>
+        </ol>
+
+        <h2>5. Seguridad</h2>
+        <ul>
+            <li>Contraseñas del panel cifradas con bcrypt.</li>
+            <li>Sesión con JWT; al cerrar sesión el token queda revocado.</li>
+            <li>Límite de solicitudes por IP en el inicio de sesión, el checkout, los pagos y los backups.</li>
+            <li>La firma del webhook de Mercado Pago se verifica antes de cambiar el estado de un pedido.</li>
+            <li>La tienda nunca recibe datos de tarjetas: el pago ocurre en Mercado Pago.</li>
+            <li>Cabeceras de seguridad (helmet en la API; CSP en la tienda y en este sitio).</li>
+            <li>Pedidos identificados por UUID en las URL públicas.</li>
+        </ul>
+
+        <h2>6. Respaldo y despliegue</h2>
+        <ul>
+            <li><strong>Backups:</strong> cada noche se hace un volcado de la base de datos (mysqldump), se comprime con gzip, se guarda 30 días y se envía por correo. También se puede lanzar uno a pedido desde el panel.</li>
+            <li><strong>Despliegue:</strong> cada cambio en la rama principal pasa primero por pruebas automáticas: arranque, salud, productos, un inicio de sesión rechazado y un pedido completo. Solo si pasan, se publica en Hostinger.</li>
+            <li><strong>Migraciones:</strong> los cambios de esquema corren solos al arrancar la API y están escritos para poder repetirse sin efectos.</li>
+        </ul>
+
+        <h2>7. Decisiones y límites conocidos</h2>
+        <ul>
+            <li><strong>El inventario no se descuenta con cada venta.</strong> Cada talla de cada color se marca como disponible o agotada desde el panel. Así el negocio controla lo que ofrece aunque también venda en su local.</li>
+            <li><strong>Las tallas son numéricas</strong> (35, 36, 37…). Tallas de ropa como S, M o L requerirían adaptar la plataforma.</li>
+            <li><strong>Una sola instancia de la API.</strong> La lista de sesiones revocadas y los límites de solicitudes viven en memoria; si algún día se ejecutaran varias copias de la API, habría que llevarlos a la base de datos.</li>
+            <li><strong>Sin facturación electrónica</strong> integrada por ahora.</li>
+        </ul>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-contenido">
+            <p>© 2026 MetCommerce — Plataforma de ventas en línea para negocios locales</p>
+            <p>San Pedro de los Milagros, Antioquia, Colombia</p>
+        </div>
+    </footer>
+
+</body>
+</html>
