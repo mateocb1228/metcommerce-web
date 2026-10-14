@@ -1447,6 +1447,46 @@ a {
     color: var(--azul);
 }
 
+/* ===== PÁGINA 404 ===== */
+.error-404 {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 90px 24px 100px;
+    text-align: center;
+}
+
+.error-404-codigo {
+    font-size: clamp(80px, 18vw, 140px);
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--azul), var(--celeste));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+.error-404 h1 {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 800;
+    color: var(--azul-oscuro);
+    margin-bottom: 12px;
+}
+
+.error-404-texto {
+    color: var(--texto-suave);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.error-404-botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
 /* ===== FOOTER ===== */
 .footer {
     background: var(--blanco);
