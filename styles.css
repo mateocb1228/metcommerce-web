@@ -809,9 +809,10 @@ a {
     color: var(--blanco);
 }
 
+/* Dos columnas fijas: con auto-fit, la captura ancha del panel dejaba una tercera columna vacía */
 .caso-galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     max-width: 1100px;
     margin: 40px auto 0;
@@ -822,6 +823,22 @@ a {
     border-radius: var(--radio);
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* La captura del panel es apaisada: ocupa toda la fila */
+.caso-galeria-ancha {
+    grid-column: 1 / -1;
+}
+
+/* En el celular las capturas se ven pequeñas: se pueden abrir en tamaño completo */
+.caso-galeria-enlace {
+    display: block;
+    cursor: zoom-in;
+}
+
+.caso-galeria-enlace:focus-visible {
+    outline: 3px solid var(--celeste);
+    outline-offset: -3px;
 }
 
 .caso-galeria figcaption {
@@ -1622,6 +1639,10 @@ a {
     .caso-botones a {
         flex: 1 1 100%;
         justify-content: center;
+    }
+
+    .caso-galeria {
+        grid-template-columns: 1fr;
     }
 
     .pasos {
