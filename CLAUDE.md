@@ -11,7 +11,10 @@ Página corporativa de MetCommerce, publicada en https://metcommerce.netlify.app
 
 ## Modelo de negocio (lo que el sitio debe comunicar)
 
-- MetCommerce cobra **implementación única + mensualidad de mantenimiento** (hosting, soporte, backups y actualizaciones). No es "software a medida de pago único".
+- MetCommerce cobra **implementación única + mensualidad de mantenimiento**. No es "software a medida de pago único". No afirmar qué cubre la mensualidad (hosting, dominio, etc.) hasta que el usuario lo defina.
+- **Planes** (definidos por el usuario el 2026-10-13):
+  - **Básico:** $800.000 COP de implementación + $50.000/mes. Tienda en línea, catálogo, carrito y panel básico.
+  - **Completo:** $1.500.000 COP de implementación + $80.000/mes. Todo lo del Básico más pagos con Mercado Pago, correos automáticos, backups diarios y soporte prioritario.
 - **Tennix Shop** es la tienda demo propia del autor, creada para mostrar lo que MetCommerce puede hacer. Se presenta como "tienda demo en producción", no como cliente ni como "proyecto demo" de maqueta.
 
 ## Tennix Shop: qué se puede afirmar

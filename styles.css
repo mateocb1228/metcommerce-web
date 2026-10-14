@@ -78,8 +78,11 @@ a {
 .stack-grid .reveal:nth-child(5) { transition-delay: 0.32s; }
 .servicios-grid .reveal:nth-child(6),
 .stack-grid .reveal:nth-child(6) { transition-delay: 0.4s; }
+.servicios-grid .reveal:nth-child(7),
 .stack-grid .reveal:nth-child(7) { transition-delay: 0.48s; }
+.servicios-grid .reveal:nth-child(8),
 .stack-grid .reveal:nth-child(8) { transition-delay: 0.56s; }
+.servicios-grid .reveal:nth-child(9) { transition-delay: 0.64s; }
 
 /* ===== SECCIÓN TÍTULO / TAG ===== */
 .seccion-titulo {
@@ -522,30 +525,30 @@ a {
     padding: 40px 24px;
 }
 
-.destacado {
+.destacado-item {
     text-align: center;
     padding: 20px 28px;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.destacado:last-child {
+.destacado-item:last-child {
     border-right: none;
 }
 
-.destacado i {
+.destacado-item i {
     font-size: 28px;
     color: var(--celeste);
     margin-bottom: 12px;
 }
 
-.destacado h3 {
+.destacado-item h3 {
     color: var(--blanco);
     font-size: 17px;
     font-weight: 700;
     margin-bottom: 6px;
 }
 
-.destacado p {
+.destacado-item p {
     color: var(--celeste-pastel);
     font-size: 14px;
     line-height: 1.5;
@@ -591,6 +594,22 @@ a {
     font-size: 26px;
     color: var(--azul);
     margin-bottom: 18px;
+}
+
+.modulo-plan {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    background: rgba(0, 119, 182, 0.08);
+    color: var(--azul);
+}
+
+.modulo-plan.completo {
+    background: var(--azul-oscuro);
+    color: var(--blanco);
 }
 
 .servicio-card h3 {
@@ -981,6 +1000,37 @@ a {
     margin-left: 5px;
 }
 
+/* El precio de implementación va arriba; la mensualidad, justo debajo */
+.precio-card .precio-valor {
+    margin-bottom: 0;
+}
+
+.precio-nota {
+    font-size: 14px;
+    color: var(--texto-suave);
+    margin-bottom: 14px;
+}
+
+.precio-mensual {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+    margin-bottom: 25px;
+}
+
+.precio-mensual span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.precio-card.destacado .precio-nota {
+    color: var(--celeste-pastel);
+}
+
+.precio-card.destacado .precio-mensual {
+    color: var(--blanco);
+}
+
 .precio-card ul {
     list-style: none;
     margin-bottom: 30px;
@@ -1038,6 +1088,144 @@ a {
 .btn-precio:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 119, 182, 0.4);
+}
+
+/* ===== PREGUNTAS FRECUENTES ===== */
+.preguntas {
+    padding: 90px 24px;
+    background: var(--fondo-suave);
+}
+
+.preguntas-lista {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.pregunta {
+    background: var(--blanco);
+    border-radius: var(--radio);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.pregunta summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 20px 56px 20px 24px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--azul-oscuro);
+    position: relative;
+}
+
+.pregunta summary::-webkit-details-marker {
+    display: none;
+}
+
+.pregunta summary::after {
+    content: '+';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--azul);
+}
+
+.pregunta[open] summary::after {
+    content: '−';
+}
+
+.pregunta summary:focus-visible {
+    outline: 3px solid var(--celeste);
+    outline-offset: 2px;
+    border-radius: var(--radio);
+}
+
+.pregunta p {
+    padding: 0 24px 22px;
+    color: var(--texto-suave);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.pregunta a {
+    color: var(--azul);
+    font-weight: 600;
+}
+
+/* ===== SOBRE NOSOTROS ===== */
+.nosotros {
+    padding: 90px 24px;
+    background: var(--blanco);
+}
+
+.nosotros-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.nosotros-texto {
+    flex: 1 1 400px;
+}
+
+.nosotros-texto h2 {
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+    color: var(--azul-oscuro);
+    margin-bottom: 18px;
+}
+
+.nosotros-texto p {
+    color: var(--texto-suave);
+    line-height: 1.7;
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+.nosotros-valores {
+    flex: 1 1 360px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.nosotros-valores li {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: var(--fondo-suave);
+    border-radius: var(--radio);
+    padding: 22px;
+}
+
+.nosotros-valores i {
+    font-size: 22px;
+    color: var(--azul);
+    width: 28px;
+    text-align: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.nosotros-valores h3 {
+    font-size: 17px;
+    color: var(--azul-oscuro);
+    margin-bottom: 4px;
+}
+
+.nosotros-valores p {
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 /* ===== CONTACTO ===== */
@@ -1120,6 +1308,64 @@ a {
 
 .contacto-form button {
     justify-content: center;
+}
+
+/* ===== PÁGINA LEGAL (privacidad) ===== */
+.nav-logo {
+    text-decoration: none;
+}
+
+.legal {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+    color: var(--texto);
+    line-height: 1.7;
+}
+
+.legal h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+    color: var(--azul-oscuro);
+}
+
+.legal-fecha {
+    color: var(--texto-suave);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.legal h2 {
+    font-size: 20px;
+    color: var(--azul-oscuro);
+    margin: 34px 0 10px;
+}
+
+.legal p,
+.legal li {
+    font-size: 15px;
+    color: var(--texto-suave);
+}
+
+.legal p {
+    margin-bottom: 12px;
+}
+
+.legal ul {
+    padding-left: 22px;
+    margin-bottom: 12px;
+}
+
+.legal li {
+    margin-bottom: 6px;
+}
+
+.legal strong {
+    color: var(--texto);
+}
+
+.legal a {
+    color: var(--azul);
 }
 
 /* ===== FOOTER ===== */
@@ -1225,8 +1471,8 @@ a {
 
 /* ===== RESPONSIVE ===== */
 
-/* Tablets y menos: activa el menú hamburguesa */
-@media (max-width: 900px) {
+/* Hasta 1180px: activa el menú hamburguesa (los siete enlaces no caben antes) */
+@media (max-width: 1180px) {
     .nav-toggle {
         display: flex;
     }
@@ -1254,6 +1500,11 @@ a {
 
     .btn-nav {
         display: none;
+    }
+
+    /* En páginas sin menú hamburguesa, el botón es la única navegación */
+    .btn-nav.btn-nav-visible {
+        display: inline-block;
     }
 }
 
@@ -1285,13 +1536,13 @@ a {
         justify-content: center;
     }
 
-    .destacado {
+    .destacado-item {
         padding: 16px 12px;
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .destacado:last-child {
+    .destacado-item:last-child {
         border-bottom: none;
     }
 
@@ -1300,6 +1551,8 @@ a {
     .casos-exito,
     .como-funciona,
     .precios,
+    .preguntas,
+    .nosotros,
     .contacto {
         padding: 60px 20px;
     }
@@ -1365,6 +1618,8 @@ a {
     .casos-exito,
     .como-funciona,
     .precios,
+    .preguntas,
+    .nosotros,
     .contacto {
         padding-left: 80px;
         padding-right: 80px;
