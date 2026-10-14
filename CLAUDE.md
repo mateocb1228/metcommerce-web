@@ -48,5 +48,8 @@ Solo funciones reales, verificables en https://tennix-shop.com:
 
 - Sin atribución de IA en commits ni archivos: nada de `Co-Authored-By` ni comentarios de "generado por".
 - Comentarios en español, con la densidad del código existente. Nombres de clases y funciones en español (`servicio-card`, `enviarFormulario`).
+- **Iconos:** sprite SVG al inicio del `<body>` de `index.html`, con trazos de Font Awesome Free 6.5.0 (CC BY 4.0; la atribución va en el comentario del sprite). Para agregar uno: copiar el `<path>` y el `viewBox` de `svgs/solid/<nombre>.svg` del paquete `@fontawesome/fontawesome-free@6.5.0` en un `<symbol id="i-<nombre>">`, y usarlo con `<svg class="icono" viewBox="..." aria-hidden="true" focusable="false"><use href="#i-<nombre>"></use></svg>`. No volver a cargar Font Awesome desde un CDN.
+- **Formulario de contacto:** no guarda datos; arma el mensaje y abre WhatsApp. La validación y el envío están en `script.js`, sin `onclick` ni `alert()`.
+- Si se agrega un servicio externo (fuentes, scripts, analítica), actualizar la sección 4 de `privacidad.html`.
 - Paleta: azul oscuro `#03045e`, azul `#0077b6`, celeste `#00b4d8` (variables en `:root` de `styles.css`).
 - Datos de contacto: WhatsApp +57 304 290 7179, metcommerce1@gmail.com, San Pedro de los Milagros (Antioquia).
