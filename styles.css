@@ -44,6 +44,16 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* Iconos SVG del sprite: toman el tamaño de la fuente y el color del texto, como antes Font Awesome */
+.icono {
+    display: inline-block;
+    height: 1em;
+    width: auto;
+    fill: currentColor;
+    vertical-align: -0.125em;
+    flex-shrink: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -535,10 +545,11 @@ a {
     border-right: none;
 }
 
-.destacado-item i {
+.destacado-item .icono {
+    display: block;
     font-size: 28px;
     color: var(--celeste);
-    margin-bottom: 12px;
+    margin: 0 auto 12px;
 }
 
 .destacado-item h3 {
@@ -657,7 +668,7 @@ a {
     background: rgba(255, 255, 255, 0.12);
 }
 
-.stack-card i {
+.stack-card .icono {
     font-size: 36px;
     color: var(--celeste-claro);
 }
@@ -769,7 +780,7 @@ a {
     font-size: 15px;
 }
 
-.caso-lista i {
+.caso-lista .icono {
     color: var(--azul);
     font-size: 13px;
 }
@@ -1049,7 +1060,7 @@ a {
     color: #444;
 }
 
-.precio-card ul li i {
+.precio-card ul li .icono {
     color: var(--azul);
     font-size: 13px;
 }
@@ -1058,7 +1069,7 @@ a {
     color: #999;
 }
 
-.precio-card ul li.no i {
+.precio-card ul li.no .icono {
     color: #c0392b;
 }
 
@@ -1067,7 +1078,7 @@ a {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.precio-card.destacado ul li i {
+.precio-card.destacado ul li .icono {
     color: var(--celeste-claro);
 }
 
@@ -1207,12 +1218,10 @@ a {
     padding: 22px;
 }
 
-.nosotros-valores i {
+.nosotros-valores .icono {
     font-size: 22px;
     color: var(--azul);
     width: 28px;
-    text-align: center;
-    flex-shrink: 0;
     margin-top: 2px;
 }
 
