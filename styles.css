@@ -84,19 +84,19 @@ a {
 }
 
 .servicios-grid .reveal:nth-child(2),
-.stack-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+.confianza-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
 .servicios-grid .reveal:nth-child(3),
-.stack-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+.confianza-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
 .servicios-grid .reveal:nth-child(4),
-.stack-grid .reveal:nth-child(4) { transition-delay: 0.24s; }
+.confianza-grid .reveal:nth-child(4) { transition-delay: 0.24s; }
 .servicios-grid .reveal:nth-child(5),
-.stack-grid .reveal:nth-child(5) { transition-delay: 0.32s; }
+.confianza-grid .reveal:nth-child(5) { transition-delay: 0.32s; }
 .servicios-grid .reveal:nth-child(6),
-.stack-grid .reveal:nth-child(6) { transition-delay: 0.4s; }
+.confianza-grid .reveal:nth-child(6) { transition-delay: 0.4s; }
 .servicios-grid .reveal:nth-child(7),
-.stack-grid .reveal:nth-child(7) { transition-delay: 0.48s; }
+.confianza-grid .reveal:nth-child(7) { transition-delay: 0.48s; }
 .servicios-grid .reveal:nth-child(8),
-.stack-grid .reveal:nth-child(8) { transition-delay: 0.56s; }
+.confianza-grid .reveal:nth-child(8) { transition-delay: 0.56s; }
 .servicios-grid .reveal:nth-child(9) { transition-delay: 0.64s; }
 
 /* ===== SECCIÓN TÍTULO / TAG ===== */
@@ -675,6 +675,151 @@ a {
     font-weight: 600;
 }
 
+/* Texto solo para lectores de pantalla */
+.solo-lectores {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===== COMPARACIÓN CON VENDER SOLO POR REDES ===== */
+.comparacion {
+    padding: 90px 24px;
+    background: var(--fondo-suave);
+}
+
+.comparacion-tabla-contenedor {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--blanco);
+    border-radius: var(--radio);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.comparacion-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.comparacion-tabla thead th {
+    padding: 18px 22px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--texto-suave);
+    background: #eef3f8;
+}
+
+.comparacion-tabla thead th:last-child {
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+}
+
+.comparacion-tabla tbody th,
+.comparacion-tabla td {
+    padding: 18px 22px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.comparacion-tabla tbody th {
+    width: 20%;
+    color: var(--azul-oscuro);
+    font-weight: 700;
+}
+
+.comparacion-tabla td {
+    color: var(--texto-suave);
+}
+
+.comparacion-tabla td:last-child {
+    color: var(--texto);
+    background: rgba(0, 180, 216, 0.06);
+    font-weight: 500;
+}
+
+.comparacion-plan {
+    display: block;
+    width: max-content;
+    margin-top: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 20px;
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+}
+
+.comparacion-nota {
+    max-width: 760px;
+    margin: 28px auto 0;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* En el celular cada fila se vuelve una tarjeta y cada celda muestra su encabezado */
+@media (max-width: 700px) {
+    .comparacion-tabla thead {
+        display: none;
+    }
+
+    .comparacion-tabla,
+    .comparacion-tabla tbody,
+    .comparacion-tabla tr,
+    .comparacion-tabla tbody th,
+    .comparacion-tabla td {
+        display: block;
+        width: 100%;
+    }
+
+    .comparacion-tabla tr {
+        border-top: 6px solid var(--fondo-suave);
+    }
+
+    .comparacion-tabla tbody tr:first-child {
+        border-top: none;
+    }
+
+    .comparacion-tabla tbody th {
+        padding-bottom: 6px;
+        border-top: none;
+        font-size: 17px;
+    }
+
+    .comparacion-tabla td {
+        border-top: none;
+        padding-top: 8px;
+        padding-bottom: 12px;
+    }
+
+    .comparacion-tabla td::before {
+        content: attr(data-titulo);
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        color: var(--texto-suave);
+        margin-bottom: 2px;
+    }
+
+    .comparacion-tabla td:last-child::before {
+        color: var(--azul);
+    }
+}
+
 /* ===== SERVICIOS ===== */
 .servicios {
     padding: 90px 24px;
@@ -752,41 +897,72 @@ a {
     background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio));
 }
 
-.stack-grid {
+.confianza-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 24px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-.stack-card {
+.confianza-card {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radio);
-    padding: 28px 16px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    padding: 28px 26px;
     transition: transform var(--transicion), background var(--transicion);
 }
 
-.stack-card:hover {
+.confianza-card:hover {
     transform: translateY(-6px);
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.stack-card .icono {
-    font-size: 36px;
+.confianza-card > .icono {
+    display: block;
+    font-size: 30px;
     color: var(--celeste-claro);
+    margin-bottom: 16px;
 }
 
-.stack-card span {
+.confianza-card h3 {
     color: var(--blanco);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.confianza-card p {
+    color: var(--celeste-pastel);
     font-size: 14px;
+    line-height: 1.6;
+}
+
+/* La etiqueta de plan sobre fondo oscuro: clara para que contraste */
+.confianza-card .modulo-plan.completo {
+    background: var(--celeste-claro);
+    color: var(--azul-oscuro);
+}
+
+.confianza-enlace {
+    text-align: center;
+    margin-top: 36px;
+}
+
+.confianza-enlace a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--blanco);
     font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border-bottom: 2px solid var(--celeste);
+    padding-bottom: 4px;
+}
+
+.confianza-enlace a:hover {
+    color: var(--celeste-claro);
 }
 
 /* ===== CASOS DE EXITO ===== */
@@ -1552,6 +1728,68 @@ a {
     color: var(--azul);
 }
 
+/* ===== PÁGINA DE ARQUITECTURA (usa la base de .legal) ===== */
+.arquitectura {
+    max-width: 900px;
+}
+
+.legal ol {
+    padding-left: 22px;
+    margin-bottom: 12px;
+}
+
+.pasos-pedido li {
+    margin-bottom: 10px;
+}
+
+/* En pantallas angostas la tabla se desplaza dentro de su caja, sin mover la página */
+.tabla-desplazable {
+    overflow-x: auto;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.tabla-tecnica {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.tabla-tecnica caption {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--texto-suave);
+    background: var(--fondo-suave);
+}
+
+.tabla-tecnica th,
+.tabla-tecnica td {
+    padding: 10px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.tabla-tecnica thead th {
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    font-weight: 600;
+}
+
+.tabla-tecnica td {
+    color: var(--texto-suave);
+}
+
+.tabla-tecnica td:first-child {
+    color: var(--azul-oscuro);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
 /* ===== PÁGINA 404 ===== */
 .error-404 {
     max-width: 640px;
@@ -1771,6 +2009,7 @@ a {
     }
 
     .negocios,
+    .comparacion,
     .servicios,
     .tecnologias,
     .casos-exito,
@@ -1843,6 +2082,7 @@ a {
 
     .destacados,
     .negocios,
+    .comparacion,
     .servicios,
     .tecnologias,
     .casos-exito,
