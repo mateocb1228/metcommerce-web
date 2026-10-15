@@ -61,4 +61,4 @@ Solo funciones reales, verificables en https://tennix-shop.com:
 - **404.html:** Netlify la sirve en cualquier URL inexistente, también en subcarpetas; por eso usa rutas absolutas (`/styles.css`).
 - **Logo:** las páginas usan `img/logo-icono.webp` (120px de alto). `img/Logo-icono.png` es el original, para regenerar íconos; no cargarlo en las páginas.
 - Paleta: azul oscuro `#03045e`, azul `#0077b6`, celeste `#00b4d8` (variables en `:root` de `styles.css`).
-- Datos de contacto: WhatsApp +57 304 290 7179, metcommerce1@gmail.com, San Pedro de los Milagros (Antioquia).
+- Datos de contacto: WhatsApp +57 304 290 7179, metcommerce123@gmail.com, San Pedro de los Milagros (Antioquia).
