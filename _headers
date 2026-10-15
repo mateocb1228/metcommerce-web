@@ -9,8 +9,11 @@
 # - style-src-elem permite <style> en línea, porque el del recuadro incluye el tamaño de la ventana
 #   y su hash cambia con cada visitante. Los atributos style="" siguen bloqueados (style-src).
 # - form-action permite app.netlify.com, adonde envía el formulario del recuadro.
+#
+# GoatCounter (analítica sin cookies): count.js se carga desde gc.zgo.at, pero las visitas se envían
+# a metcommerce.goatcounter.com (con sendBeacon usa connect-src; si no lo hay, una imagen usa img-src).
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-mTJ4cJaTm2Gw95GeXEpZdvEEY9ybh6FZu1bwcNE7QlY='; style-src 'self' https://fonts.googleapis.com; style-src-elem 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://app.netlify.com; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-mTJ4cJaTm2Gw95GeXEpZdvEEY9ybh6FZu1bwcNE7QlY=' https://gc.zgo.at; style-src 'self' https://fonts.googleapis.com; style-src-elem 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://metcommerce.goatcounter.com; connect-src 'self' https://gc.zgo.at https://metcommerce.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self' https://app.netlify.com; frame-ancestors 'none'; upgrade-insecure-requests
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
