@@ -20,8 +20,8 @@ Página corporativa de MetCommerce, publicada en https://metcommerce.netlify.app
   - La mensualidad cubre el sitio en línea (servidor y despliegue), actualizaciones de seguridad, soporte técnico ante problemas o caídas y hasta 3 cambios de diseño o configuración al mes. Productos, precios y fotos los cambia el cliente desde el panel.
   - Contrato mínimo de 3 meses.
   - Implementación en 10 a 15 días hábiles desde que el cliente entrega la información del negocio (productos, fotos, datos de contacto).
-  - Subir de plan: el cliente paga la diferencia de implementación y la nueva mensualidad aplica desde el mes siguiente.
-  - **Sin definir todavía:** si la mensualidad incluye el dominio propio, y cómo se baja de plan. No afirmarlos en el sitio.
+  - Dominio propio (ej. mitienda.com.co): no está incluido en la mensualidad, pero el primer año es gratis; desde el segundo año tiene un costo anual que se cotiza aparte. Sin dominio propio, el sitio funciona en la dirección que se asigne al implementarlo. (Definido el 2026-10-15.)
+  - Cambio de plan: en cualquier momento, para subir o bajar. Al subir, el cliente paga la diferencia de implementación y la nueva mensualidad aplica desde el mes siguiente. Al bajar, la nueva mensualidad aplica desde el mes siguiente, sin costo adicional. (Definido el 2026-10-15.)
 - En "Sobre nosotros" se menciona que MetCommerce nace como proyecto de grado del SENA. La política de privacidad identifica al responsable solo como "MetCommerce", sin NIT; así lo decidió el usuario.
 - **Tennix Shop** es la tienda demo propia del autor, creada para mostrar lo que MetCommerce puede hacer. Se presenta como "tienda demo en producción", no como cliente ni como "proyecto demo" de maqueta.
 
