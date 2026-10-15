@@ -11,12 +11,17 @@ Página corporativa de MetCommerce, publicada en https://metcommerce.netlify.app
 
 ## Modelo de negocio (lo que el sitio debe comunicar)
 
-- MetCommerce cobra **implementación única + mensualidad de mantenimiento**. No es "software a medida de pago único". No afirmar qué cubre la mensualidad (hosting, dominio, etc.) hasta que el usuario lo defina.
+- MetCommerce cobra **implementación única + mensualidad de mantenimiento**. No es "software a medida de pago único".
 - **Planes** (definidos por el usuario el 2026-10-13):
   - **Básico:** $800.000 COP de implementación + $50.000/mes. Tienda en línea, catálogo, carrito y panel básico.
   - **Completo:** $1.500.000 COP de implementación + $80.000/mes. Todo lo del Básico más pagos con Mercado Pago, correos automáticos, backups diarios y soporte prioritario.
   - En el Básico no hay pagos en línea: el cliente hace el pedido y coordina el pago directamente con el negocio.
-  - **Sin definir todavía:** qué cubre la mensualidad (hosting, dominio), permanencia mínima, tiempo de implementación y cambio de plan. No afirmarlos en el sitio.
+- **Condiciones** (definidas por el usuario el 2026-10-15; están en la pregunta frecuente "¿Qué incluye la mensualidad y cuánto dura el contrato?"):
+  - La mensualidad cubre el sitio en línea (servidor y despliegue), actualizaciones de seguridad, soporte técnico ante problemas o caídas y hasta 3 cambios de diseño o configuración al mes. Productos, precios y fotos los cambia el cliente desde el panel.
+  - Contrato mínimo de 3 meses.
+  - Implementación en 10 a 15 días hábiles desde que el cliente entrega la información del negocio (productos, fotos, datos de contacto).
+  - Subir de plan: el cliente paga la diferencia de implementación y la nueva mensualidad aplica desde el mes siguiente.
+  - **Sin definir todavía:** si la mensualidad incluye el dominio propio, y cómo se baja de plan. No afirmarlos en el sitio.
 - En "Sobre nosotros" se menciona que MetCommerce nace como proyecto de grado del SENA. La política de privacidad identifica al responsable solo como "MetCommerce", sin NIT; así lo decidió el usuario.
 - **Tennix Shop** es la tienda demo propia del autor, creada para mostrar lo que MetCommerce puede hacer. Se presenta como "tienda demo en producción", no como cliente ni como "proyecto demo" de maqueta.
 
