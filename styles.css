@@ -655,7 +655,7 @@ a {
     font-weight: 600;
 }
 
-/* Los dos botones crecen por igual (mismo ancho); si la columna es angosta, pasan a ocupar cada uno una fila */
+/* Los dos botones crecen por igual (mismo ancho); si el texto completo no cabe en una fila, se apilan en vez de partirse */
 .proyecto-botones {
     display: flex;
     flex-wrap: wrap;
@@ -668,12 +668,12 @@ a {
 }
 
 .proyecto-botones a {
-    flex: 1 1 200px;
+    flex: 1 1 250px;
     justify-content: center;
     gap: 8px;
     padding: 12px 16px;
     font-size: 14px;
-    text-align: center;
+    white-space: nowrap;
 }
 
 /* Texto oscuro sobre el verde de WhatsApp: el blanco no alcanza el contraste mínimo */
